@@ -1,0 +1,59 @@
+dinakaran_android_debug:
+    every: 12h
+    class: UA_Android_Migration
+    queue: migrations
+    args:
+        - 'com.dinakaran.mobile.android.debug'
+        - 'fpIlP9HYSHuHD_35rQpTzw'
+        - 'dxpbcyY_Rvmbw1lw1rbB7w'
+    description: "Migrate Debug Dinakaran android apids and c2dm tokens"
+  
+dinakaran_ipad_debug:
+    every: 12h
+    class: UA_iOS_Migration
+    queue: migrations
+    args: 
+        - 'com.dinakaran.mobile.ipad.debug'
+        - '-lwNF983TNGeAUSuIL5OZQ'
+        - 'yE0Y_UpETgC4WN4u4yVdKw'
+    description: "Migrate Debug Dinakaran iPad device tokens"
+  
+dinakaran_iphone_debug:
+    every: 12h
+    class: UA_iOS_Migration
+    queue: migrations 
+    args: 
+        - 'com.dinakaran.mobile.iphone.debug'
+        - 'FPEh2Sy0T_-GuIaoOdec4w'
+        - '3ZwsEr7JTYmwRds88foDpg'
+    description: "Migrate Debug Dinakaran iPhone device tokens"
+  
+dinakaran_android:
+    every: 12h
+    class: UA_Android_Migration
+    queue: migrations
+    args: 
+        - 'com.dinakaran.mobile.android'
+        - 'eIaL-nWPQ_SUtHUTEcX8kA'
+        - '8bTr5kMqTDuBz1PanO3-dw'
+    description: "Migrate Production Dinakaran android apids and c2dm tokens"
+
+dinakaran_ipad:
+    every: 12h
+    class: UA_iOS_Migration
+    queue: migrations
+    args:
+        - 'com.dinakaran.mobile.ipad'
+        - 'OwYAmYdwSZqAP1ehWe9dDg'
+        - '8J_gZlpeTrGwrBi8Tnqf0w'
+    description: "Migrate Production Dinakaran iPad device tokens"
+
+dinakaran_iphone:
+    every: 12h
+    class: UA_iOS_Migration
+    queue: migrations
+    args:
+        - 'com.dinakaran.mobile.iphone'
+        - 'Gx2YSA_qTu2Lo4WkklkKXA'
+        - 'jTukW9CbQhyccV3WsbRsog'
+    description: "Migrate Production Dinakaran iPhone device tokens"

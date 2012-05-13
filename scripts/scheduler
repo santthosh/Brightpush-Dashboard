@@ -1,0 +1,32 @@
+#!/bin/bash
+
+function start {
+	echo "Starting the scheduler processes..."
+	nohup bundle exec rake resque:scheduler 1>/dev/null 2>&1 &
+	echo $! > ./tmp/pids/resque_sched.pid
+	echo "Done"
+}
+
+function stop {
+	echo "Stopping the rescue processes..."
+
+	if [ -f ./tmp/pids/resque_sched.pid ]; then
+		kill -9 `cat ./tmp/pids/resque_sched.pid`
+		rm ./tmp/pids/resque_sched.pid
+	fi
+
+	echo "Done"
+}
+
+if [ $1 == 'start' ]; then
+	start
+fi
+
+if [ $1 == 'stop' ]; then
+	stop
+fi
+
+if [ $1 == 'restart' ]; then
+	stop
+	start
+fi
