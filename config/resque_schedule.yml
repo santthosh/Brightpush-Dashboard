@@ -1,9 +1,16 @@
-ios_scheduler:
+apns_scheduler:
   every: 1m
-  class: Schedule_iOS_PushNotifications
+  class: Schedule_APNS_PushNotifications
   queue: scheduler
   args: []
   description: "Schedule iOS Notifications"
+  
+c2dm_scheduler:
+  every: 1m
+  class: Schedule_C2DM_PushNotifications
+  queue: scheduler
+  args: []
+  description: "Schedule Android Notifications"
 
 dinakaran_android_debug:
     every: 12h

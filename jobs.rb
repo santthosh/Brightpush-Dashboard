@@ -14,7 +14,13 @@ module UA_Android_Migration
   def self.perform(identifier,key,master_secret); end
 end
 
-module Schedule_iOS_PushNotifications
+module Schedule_APNS_PushNotifications
+    @queue = :scheduler
+   
+   def self.perform(identifier,key,master_secret); end 
+end
+
+module Schedule_C2DM_PushNotifications
     @queue = :scheduler
    
    def self.perform(identifier,key,master_secret); end 
