@@ -1,3 +1,10 @@
+ios_scheduler:
+  every: 1m
+  class: Schedule_iOS_PushNotifications
+  queue: scheduler
+  args: []
+  description: "Schedule iOS Notifications"
+
 dinakaran_android_debug:
     every: 12h
     class: UA_Android_Migration

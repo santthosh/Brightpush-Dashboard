@@ -7,7 +7,6 @@ namespace :resque do
     require 'resque'
     require 'resque_scheduler'
     require 'resque/scheduler'
-    require 'resque-status'
            
     rails_env = ENV['RAILS_ENV'] || 'development'
 

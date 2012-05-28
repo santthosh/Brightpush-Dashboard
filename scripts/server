@@ -1,0 +1,35 @@
+#!/bin/bash
+
+function start {
+	mkdir -p ./tmp
+	mkdir -p ./tmp/pids
+	
+	echo "Starting the dashboard process..."
+	rackup config.ru 1>/dev/null &
+	echo $! > ./tmp/pids/dashboard.pid
+	echo "Done"
+}
+
+function stop {
+	echo "Stopping the dashboard processes..."
+
+	if [ -f ./tmp/pids/dashboard.pid ]; then
+		kill -9 `cat ./tmp/pids/dashboard.pid`
+		rm ./tmp/pids/dashboard.pid
+	fi
+
+	echo "Done"
+}
+
+if [ $1 == 'start' ]; then
+	start
+fi
+
+if [ $1 == 'stop' ]; then
+	stop
+fi
+
+if [ $1 == 'restart' ]; then
+	stop
+	start
+fi

@@ -4,6 +4,10 @@ $LOAD_PATH.unshift File.dirname(__FILE__) unless $LOAD_PATH.include?(File.dirnam
 require 'initializers'
 require 'app'
 
+# log = File.new(“logs/sinatra.log”, “a”)
+# STDOUT.reopen(log)
+# STDERR.reopen(log)
+
 # Set the AUTH env variable to your basic auth password to protect Resque.
 Resque::Server.use(Rack::Auth::Basic) do |user, password|
   user == "developers@brightapps.in" && password == "blsjv2h8@"
