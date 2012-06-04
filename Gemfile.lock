@@ -52,6 +52,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  multi_json
   rack-test
   resque
   resque-scheduler (= 2.0.0.e)

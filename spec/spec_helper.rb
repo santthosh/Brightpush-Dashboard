@@ -9,6 +9,4 @@ end
 
 RSpec.configure do |conf|
   conf.include Rack::Test::Methods
-  conf.include Webrat::Methods
-  conf.include Webrat::Matchers
 end

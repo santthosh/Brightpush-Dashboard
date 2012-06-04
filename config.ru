@@ -1,6 +1,7 @@
 $LOAD_PATH.unshift File.dirname(__FILE__) unless $LOAD_PATH.include?(File.dirname(__FILE__))
 
 # This file is used by Rack-based servers to start the application.
+require File.dirname(__FILE__) + '/config/boot.rb'
 require 'initializers'
 require 'app'
 
