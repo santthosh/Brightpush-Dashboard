@@ -1,6 +1,6 @@
 require 'sinatra/base'
 require 'resque'
-require 'jobs'
+require 'lib/jobs'
 
 module Dashboard
   class App < Sinatra::Base
