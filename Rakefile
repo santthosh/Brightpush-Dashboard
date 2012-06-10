@@ -1,6 +1,5 @@
 require 'resque/tasks'
 require 'resque_scheduler/tasks'
-require 'rspec/core/rake_task'
 require 'yaml'
 
 task :default => :help
@@ -49,6 +48,8 @@ end
 
 desc "Run specs"
 task :spec do
+  require 'rspec/core/rake_task'
+  
   RSpec::Core::RakeTask.new(:spec) do |t|
     t.pattern = './spec/**/*_spec.rb'
   end
