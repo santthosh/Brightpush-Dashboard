@@ -39,11 +39,8 @@ set :rails_env,"development"
  namespace :deploy do
   desc "Starts the dashboard and the scheduler"
   task :start_dashboard, :roles => :app do
-    puts "\n\n=== Creating Production Log! ===\n\n"
-    run "touch #{File.join(shared_path, 'log', 'development.log')}"
     run "cd #{release_path} && bundle install"
-    run "cd #{release_path} && scripts/server start"
-    run "cd #{release_path} && scripts/scheduler start"
+    run "cd #{release_path} && scripts/scheduler restart"
   end
  end
  
