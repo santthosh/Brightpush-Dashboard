@@ -5,9 +5,13 @@ require File.dirname(__FILE__) + '/config/boot.rb'
 require 'initializers'
 require 'app'
 
-# log = File.new(“logs/sinatra.log”, “a”)
-# STDOUT.reopen(log)
-# STDERR.reopen(log)
+set :environment, ENV['RACK_ENV'].to_sym
+set :app_file, 'app.rb'
+disable :run
+
+log = File.new("logs/sinatra.log", "a")
+STDOUT.reopen(log)
+STDERR.reopen(log)
 
 # Set the AUTH env variable to your basic auth password to protect Resque.
 Resque::Server.use(Rack::Auth::Basic) do |user, password|
