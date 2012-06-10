@@ -5,6 +5,7 @@ gem 'resque'
 gem 'resque-scheduler', '2.0.0.e', :require => 'resque_scheduler'
 gem 'multi_json'
 gem 'rack'
+gem 'rake'
 
 group :development do
   gem 'capistrano', '2.8.0'
