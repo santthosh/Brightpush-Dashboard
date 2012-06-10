@@ -10,13 +10,13 @@ namespace :resque do
     require 'resque_scheduler'
     require 'resque/scheduler'
            
-    rails_env = ENV['RAILS_ENV'] || 'development'
+    rack_env = ENV['RACK_ENV'] || 'development'
 
-    if rails_env == 'production'
+    if rack_env == 'production'
       $redis = 'redis.brightpush.in'
-    elsif rails_env == 'staging'
+    elsif rack_env == 'staging'
       $redis = 'redis.brightpushbeta.in'
-    elsuf rails_env == 'test'
+    elsif rack_env == 'development'
       $redis = 'redis.brightpushalpha.in'
     else 
       $redis = 'localhost:6379'

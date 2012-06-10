@@ -3,15 +3,14 @@ require 'resque_scheduler'
 require 'resque_scheduler/server'
 require 'yaml'
 
-rails_env = ENV['RAILS_ENV'] || 'development'
+rack_env = ENV['RACK_ENV'] || 'development'
 
-if rails_env == 'production'
+if rack_env == 'production'
   $redis = 'redis.brightpush.in'
-elsif rails_env == 'staging'
+elsif rack_env == 'staging'
   $redis = 'redis.brightpushbeta.in'
-elsif rails_env == 'development'
-# This is mapped to redis.brightpushalpha.in
-  $redis = '50.112.241.56:6379'
+elsif rack_env == 'development'
+  $redis = 'redis.brightpushalpha.in'
 else 
   $redis = 'localhost:6379'
 end
