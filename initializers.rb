@@ -10,7 +10,7 @@ if rack_env == 'production'
 elsif rack_env == 'staging'
   $redis = 'redis.brightpushbeta.in'
 elsif rack_env == 'development'
-  $redis = 'redis.brightpushalpha.in'
+  $redis = 'redis.brightpushalpha.in:6379'
 else 
   $redis = 'localhost:6379'
 end
