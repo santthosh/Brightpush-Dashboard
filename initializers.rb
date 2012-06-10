@@ -9,8 +9,9 @@ if rails_env == 'production'
   $redis = 'redis.brightpush.in'
 elsif rails_env == 'staging'
   $redis = 'redis.brightpushbeta.in'
-elsuf rails_env == 'test'
-  $redis = 'redis.brightpushalpha.in'
+elsif rails_env == 'development'
+# This is mapped to redis.brightpushalpha.in
+  $redis = '50.112.241.56:6379'
 else 
   $redis = 'localhost:6379'
 end
