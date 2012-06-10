@@ -15,6 +15,6 @@ end
 group :test, :development do
   gem "rspec", "~>2"
   gem "simplecov"
-  gem 'rack-test', :require => "rack/test"
+  gem 'rack-test'
   gem 'webrat'
 end
