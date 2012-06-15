@@ -19,6 +19,12 @@ describe "Schedule_APNS_PushNotifications" do
   end
 end
 
+describe "Process_APNS_PushNotifications" do
+  it "should process push notifications for iOS devices" do
+    Process_APNS_PushNotifications.method_defined?(:perform)
+  end
+end
+
 describe "Schedule_C2DM_PushNotifications" do
   it "should schedule c2dm notifications for Android devices" do
     Schedule_C2DM_PushNotifications.method_defined?(:perform)
