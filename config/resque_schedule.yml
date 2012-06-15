@@ -5,6 +5,13 @@ apns_scheduler:
   args: []
   description: "Schedule iOS Notifications"
   
+apns_notifier:
+  every: 1m
+  class: Process_APNS_PushNotifications
+  queue: apns_notifier
+  args: []
+  description: "Process iOS Notifications"
+  
 c2dm_scheduler:
   every: 1m
   class: Schedule_C2DM_PushNotifications
