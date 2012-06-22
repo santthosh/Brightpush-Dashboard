@@ -31,3 +31,9 @@ module Schedule_C2DM_PushNotifications
    
    def self.perform; end 
 end
+
+module Process_C2DM_PushNotifications
+    @queue = :c2dm_notifier
+   
+   def self.perform; end 
+end
