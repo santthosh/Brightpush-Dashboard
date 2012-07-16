@@ -42,6 +42,7 @@ set :rails_env,"development"
   desc "Symlink configurations"
   task :symlink_config, :roles => :app do
     run "ln -nfs #{deploy_to}/shared/config/resque_schedule.yml #{release_path}/config/resque_schedule.yml"
+    run "ln -nfs #{deploy_to}/shared/config/authentication.yml #{release_path}/config/authentication.yml"
   end
    
   desc "Starts the dashboard and the scheduler"

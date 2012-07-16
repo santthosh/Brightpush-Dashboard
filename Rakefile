@@ -14,7 +14,7 @@ namespace :resque do
 
     if rack_env == 'production'
       $redis = 'redis.brightpush.in'
-    elsif rack_env == 'staging'
+    elsif rack_env == 'qa'
       $redis = 'redis.brightpushbeta.in'
     elsif rack_env == 'development'
       $redis = 'redis.brightpushalpha.in:6379'
