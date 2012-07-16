@@ -3,7 +3,7 @@ require "rvm/capistrano"
 require "bundler/capistrano"
 
 set :normalize_asset_timestamps, false
-set :stages, ["development","staging", "production"]
+set :stages, ["development","qa", "production"]
 set :default_stage, "development"
 set :bundle_without, [:darwin, :development, :test]
 
@@ -35,8 +35,15 @@ set :rails_env,"development"
  
  before 'deploy', 'rvm:install_ruby'
  
- after 'deploy:update_code', 'deploy:start_dashboard'
+ after 'deploy:update_code', 'deploy:symlink_config'
+ after 'deploy:symlink_config', 'deploy:start_dashboard'
+ 
  namespace :deploy do
+  desc "Symlink configurations"
+  task :symlink_config, :roles => :app do
+    run "ln -nfs #{deploy_to}/shared/config/resque_schedule.yml #{release_path}/config/resque_schedule.yml"
+  end
+   
   desc "Starts the dashboard and the scheduler"
   task :start_dashboard, :roles => :app do
     run "cd #{release_path} && bundle install"
