@@ -8,7 +8,7 @@ rack_env = ENV['RACK_ENV'] || 'development'
 if rack_env == 'production'
   $redis = 'redis.brightpush.in'
 elsif rack_env == 'qa'
-  $redis = 'redis.brightpushbeta.in'
+  $redis = 'redis.brightpushbeta.in:6379'
 elsif rack_env == 'development'
   $redis = 'redis.brightpushalpha.in:6379'
 else 
@@ -17,4 +17,4 @@ end
 
 # Setup the shared redis server
 Resque.redis = $redis
-Resque.schedule = YAML.load_file(File.join('config/resque_schedule.yml'))
+#Resque.schedule = YAML.load_file(File.join('config/resque_schedule.yml'))

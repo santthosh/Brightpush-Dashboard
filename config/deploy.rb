@@ -16,7 +16,7 @@ set :application, "brightpush-dashboard"
 set :deploy_to, "/var/www/brightpush-dashboard"
 set :repository,  "git@bright.unfuddle.com:bright/brightpush-dashboard.git"
 set :user, "ubuntu"
-set :rails_env,"development"
+set :rack_env,"development"
 
 # if you want to clean up old releases on each deploy uncomment this:
 # after "deploy:restart", "deploy:cleanup"
@@ -48,7 +48,7 @@ set :rails_env,"development"
   desc "Starts the dashboard and the scheduler"
   task :start_dashboard, :roles => :app do
     run "cd #{release_path} && bundle install"
-    run "cd #{release_path} && scripts/scheduler restart"
+    run "cd #{release_path} && scripts/scheduler restart  #{rack_env}"
   end
  end
  
