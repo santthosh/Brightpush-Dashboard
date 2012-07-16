@@ -17,4 +17,4 @@ end
 
 # Setup the shared redis server
 Resque.redis = $redis
-#Resque.schedule = YAML.load_file(File.join('config/resque_schedule.yml'))
+Resque.schedule = YAML.load_file(File.join('config/resque_schedule.yml'))
