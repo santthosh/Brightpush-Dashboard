@@ -6,7 +6,7 @@ require 'yaml'
 rack_env = ENV['RACK_ENV'] || 'development'
 
 if rack_env == 'production'
-  $redis = 'redis.brightpush.in'
+  $redis = 'redis.brightpush.in:6379'
 elsif rack_env == 'qa'
   $redis = 'redis.brightpushbeta.in:6379'
 elsif rack_env == 'development'
