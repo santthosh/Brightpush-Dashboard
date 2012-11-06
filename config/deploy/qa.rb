@@ -6,4 +6,4 @@ role :app, "dashboard.brightpushbeta.in"                          # This may be 
 set :rack_env,"qa"
 
 ssh_options[:user] = "ubuntu"
-ssh_options[:keys] = ["/data/ops/beta/aws-keys/us-west-oregon/brightpushbeta.pem"]
+ssh_options[:keys] = ["/data/ops/alpha/aws-keys/us-west-oregon/brightpush-dashboard.pem"]
