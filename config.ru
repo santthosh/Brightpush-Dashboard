@@ -5,13 +5,19 @@ require File.dirname(__FILE__) + '/config/boot.rb'
 require 'initializers'
 require 'app'
 
-# log = File.new(“logs/sinatra.log”, “a”)
-# STDOUT.reopen(log)
-# STDERR.reopen(log)
+set :environment, ENV['RACK_ENV'].to_sym
+set :app_file, 'app.rb'
+disable :run
+
+log = File.new("log/sinatra.log", "a")
+STDOUT.reopen(log)
+STDERR.reopen(log)
+
+config = YAML.load_file("config/authentication.yml")
 
 # Set the AUTH env variable to your basic auth password to protect Resque.
 Resque::Server.use(Rack::Auth::Basic) do |user, password|
-  user == "developers@brightapps.in" && password == "blsjv2h8@"
+  user == config["basic_auth"]["username"] && password == config["basic_auth"]["password"]
 end
 
 run Rack::URLMap.new \

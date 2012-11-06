@@ -17,11 +17,23 @@ end
 module Schedule_APNS_PushNotifications
     @queue = :scheduler
    
-   def self.perform(identifier,key,master_secret); end 
+   def self.perform; end 
+end
+
+module Process_APNS_PushNotifications
+    @queue = :apns_notifier
+   
+   def self.perform; end 
 end
 
 module Schedule_C2DM_PushNotifications
     @queue = :scheduler
    
-   def self.perform(identifier,key,master_secret); end 
+   def self.perform; end 
+end
+
+module Process_C2DM_PushNotifications
+    @queue = :c2dm_notifier
+   
+   def self.perform; end 
 end

@@ -1,6 +1,5 @@
 require 'resque/tasks'
 require 'resque_scheduler/tasks'
-require 'rspec/core/rake_task'
 require 'yaml'
 
 task :default => :help
@@ -11,14 +10,14 @@ namespace :resque do
     require 'resque_scheduler'
     require 'resque/scheduler'
            
-    rails_env = ENV['RAILS_ENV'] || 'development'
+    rack_env = ENV['RACK_ENV'] || 'development'
 
-    if rails_env == 'production'
+    if rack_env == 'production'
       $redis = 'redis.brightpush.in'
-    elsif rails_env == 'staging'
+    elsif rack_env == 'qa'
       $redis = 'redis.brightpushbeta.in'
-    elsuf rails_env == 'test'
-      $redis = 'redis.brightpushalpha.in'
+    elsif rack_env == 'development'
+      $redis = 'redis.brightpushalpha.in:6379'
     else 
       $redis = 'localhost:6379'
     end
@@ -49,6 +48,8 @@ end
 
 desc "Run specs"
 task :spec do
+  require 'rspec/core/rake_task'
+  
   RSpec::Core::RakeTask.new(:spec) do |t|
     t.pattern = './spec/**/*_spec.rb'
   end
