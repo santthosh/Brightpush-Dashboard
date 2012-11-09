@@ -22,14 +22,29 @@ function stop {
 }
 
 if [ $1 == 'start' ]; then
+	ENVIRONMENT="local"
+	if [ -n "$2" ]; then
+		ENVIRONMENT=$2
+	fi
+		
 	start
 fi
 
 if [ $1 == 'stop' ]; then
+	ENVIRONMENT="local"
+	if [ -n "$2" ]; then
+		ENVIRONMENT=$2
+	fi
+	
 	stop
 fi
 
 if [ $1 == 'restart' ]; then
+	ENVIRONMENT="local"
+	if [ -n "$2" ]; then
+		ENVIRONMENT=$2
+	fi
+	
 	stop
 	start
 fi
