@@ -48,7 +48,7 @@ set :rack_env,"development"
   desc "Starts the dashboard and the scheduler"
   task :start_dashboard, :roles => :app do
     run "cd #{release_path} && bundle install"
-    run "cd #{release_path} && scripts/scheduler restart"
+    run "cd #{release_path} && scripts/scheduler restart #{rack_env}"
   end
  end
  
