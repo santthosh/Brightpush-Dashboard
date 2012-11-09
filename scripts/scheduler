@@ -5,7 +5,7 @@ function start {
 	mkdir -p ./tmp/pids
 	
 	echo "Starting the scheduler processes..."
-	nohup bundle exec rake resque:scheduler 1>/dev/null 2>&1 &
+	RACK_ENV=$ENVIRONMENT bundle exec rake resque:scheduler 1>/dev/null 2>&1 &
 	echo $! > ./tmp/pids/resque_sched.pid
 	echo "Done"
 }
