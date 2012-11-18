@@ -2,6 +2,7 @@ require 'resque'
 require 'resque_scheduler'
 require 'resque_scheduler/server'
 require 'yaml'
+require 'resque-status'
 
 rack_env = ENV['RACK_ENV'] || 'development'
 
@@ -18,3 +19,4 @@ end
 # Setup the shared redis server
 Resque.redis = $redis
 Resque.schedule = YAML.load_file(File.join('config/resque_schedule.yml'))
+Resque::Plugins::Status::Hash.expire_in = (24 * 60 * 60) # 24hrs in seconds

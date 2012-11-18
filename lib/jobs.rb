@@ -1,39 +1,46 @@
 require 'resque'
+require 'resque-status'
 
 # Placeholder for Urbanairship iOS device token migration job!
-module UA_iOS_Migration 
+class UA_iOS_Migration 
+  include Resque::Plugins::Status
   @queue = :migrations
 
-  def self.perform(identifier,key,master_secret); end
+  def perform(identifier,key,master_secret); end
 end
 
 # Placeholder for Urbanairship Android C2DM migration job!
-module UA_Android_Migration 
+class UA_Android_Migration 
+  include Resque::Plugins::Status
   @queue = :migrations
 
-  def self.perform(identifier,key,master_secret); end
+  def perform(identifier,key,master_secret); end
 end
 
-module Schedule_APNS_PushNotifications
+class Schedule_APNS_PushNotifications
+  include Resque::Plugins::Status
     @queue = :scheduler
    
-   def self.perform; end 
+   def perform; end 
 end
 
-module Process_APNS_PushNotifications
+class Process_APNS_PushNotifications
+  include Resque::Plugins::Status
     @queue = :apns_notifier
    
-   def self.perform; end 
+   def perform; end 
 end
 
-module Schedule_C2DM_PushNotifications
+class Schedule_C2DM_PushNotifications
+  include Resque::Plugins::Status
     @queue = :scheduler
    
-   def self.perform; end 
+   def perform; end 
 end
 
-module Process_C2DM_PushNotifications
+class Process_C2DM_PushNotifications
+  include Resque::Plugins::Status
     @queue = :c2dm_notifier
    
-   def self.perform; end 
+   def perform; end 
 end
