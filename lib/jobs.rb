@@ -1,6 +1,16 @@
 require 'resque'
 require 'resque-status'
 
+module Resque
+  class JobWithStatus
+    # Wrapper API to forward a Resque::Job creation API call into
+    # a JobWithStatus call.
+    def self.scheduled(queue, klass, *args)
+      create(*args)
+    end
+  end
+end
+
 # Placeholder for Urbanairship iOS device token migration job!
 class UA_iOS_Migration 
   include Resque::Plugins::Status

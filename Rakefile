@@ -24,6 +24,7 @@ namespace :resque do
     
     # Setup the shared redis server
     Resque.redis = $redis
+    Resque.redis.namespace = "resque"
     
     # If you want to be able to dynamically change the schedule,
     # uncomment this line.  A dynamic schedule can be updated via the
