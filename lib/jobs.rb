@@ -14,7 +14,7 @@ class UA_Android_Migration
   include Resque::Plugins::Status
   @queue = :migrations
 
-  def perform(args); end
+  def perform; end
 end
 
 class Schedule_APNS_PushNotifications
