@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/quirkey/resque-status.git
+  revision: 0815277e4d18ac9fc6f7832d243828f420f37f9f
+  branch: master
+  specs:
+    resque-status (0.4.0)
+      resque (~> 1.19)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -38,8 +46,6 @@ GEM
       redis (>= 2.0.1)
       resque (>= 1.15.0)
       rufus-scheduler
-    resque-status (0.4.0)
-      resque (~> 1.19)
     rspec (2.12.0)
       rspec-core (~> 2.12.0)
       rspec-expectations (~> 2.12.0)
@@ -81,7 +87,7 @@ DEPENDENCIES
   rake
   resque
   resque-scheduler (= 2.0.0.e)
-  resque-status
+  resque-status!
   rspec (~> 2)
   rvm-capistrano
   simplecov
