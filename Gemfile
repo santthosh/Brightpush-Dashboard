@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'sinatra'
 gem 'resque'
-gem 'resque-scheduler', :require => 'resque_scheduler', :git => "git@github.com:santthosh-aim/resque-scheduler.git", :branch => 'master'
+gem 'resque-scheduler', :require => 'resque_scheduler', :git => "git://github.com/santthosh-aim/resque-scheduler.git", :branch => 'master'
 gem 'multi_json', '1.3.5'
 gem 'rack'
 gem 'rake'

@@ -7,7 +7,7 @@ GIT
       resque (~> 1.19)
 
 GIT
-  remote: git@github.com:santthosh-aim/resque-scheduler.git
+  remote: git://github.com/santthosh-aim/resque-scheduler.git
   revision: d8168c68fcaf12e7596a26165ae4b0fdd368f441
   branch: master
   specs:
