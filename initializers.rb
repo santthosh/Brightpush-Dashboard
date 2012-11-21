@@ -20,13 +20,5 @@ end
 Resque.redis = $redis
 Resque::Plugins::Status::Hash.expire_in = (24 * 60 * 60) # 24hrs in seconds
 Resque.schedule = YAML.load_file(File.join('config/resque_schedule.yml'))
-
-module Resque
-  class JobWithStatus
-    # Wrapper API to forward a Resque::Job creation API call into
-    # a JobWithStatus call.
-    def self.scheduled(queue, klass, *args)
-      scheduled(queue,klass,*args)
-    end
-  end
-end
+Resque.logger = Logger.new("log/dashboard.log",'daily')
+Resque.logger.level = Logger::INFO

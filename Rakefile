@@ -25,6 +25,8 @@ namespace :resque do
     # Setup the shared redis server
     Resque.redis = $redis
     Resque.redis.namespace = "resque"
+    Resque.logger = Logger.new("log/scheduler.log",'daily')
+    Resque.logger.level = Logger::INFO
     
     # If you want to be able to dynamically change the schedule,
     # uncomment this line.  A dynamic schedule can be updated via the
