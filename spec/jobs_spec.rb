@@ -13,6 +13,12 @@ describe "UA_Android_Migration" do
   end
 end
 
+describe "AIM_Token_Synchronization" do
+  it "should perform synchronization of device tokens from AppInMap to our system" do
+    AIM_Token_Synchronization.method_defined?(:perform)
+  end
+end
+
 describe "Schedule_APNS_PushNotifications" do
   it "should schedule push notifications for iOS devices" do
     Schedule_APNS_PushNotifications.method_defined?(:perform)
